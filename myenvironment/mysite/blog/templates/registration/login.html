@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="jumbotron">
+    <h2>Login</h2>
+
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    {{ form.password }}
+    {{ form.as_p }}
+    <label for="username">Username:</label>
+    <input type="username" id="username" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required>
+    <br>
+    {% if fforms.errors %}
+    <p>Your Username & Password did not match! Please try again.</p>
+    {% endif %}
+
+    
+    <button type="submit" class="btn btn-primary" value="login">Login</button>
+    <input type="hidden" name="next" value="{{next}}">
+
+    
+
+    
+
+
+    
+</div>
+
+{% endblock %}
+
+
+</form>

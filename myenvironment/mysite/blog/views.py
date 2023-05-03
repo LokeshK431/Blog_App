@@ -22,6 +22,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from blog.models import MyModel
 import datetime
 
+
 def register_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
